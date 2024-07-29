@@ -1,0 +1,188 @@
+DEFAULT_USER="$USER"
+
+
+# ##############################################################
+# Oh My Zsh
+# ##############################################################
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="wuffers"
+CASE_SENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
+DISABLE_AUTO_TITLE="true"
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="true"
+HIST_STAMPS="mm-dd-yyyy"
+
+plugins=(
+    artisan
+    brew
+    npm
+    vi-mode
+    composer
+    laravel
+    cp
+    dnf
+    docker
+    docker-compose
+    git
+    httpie
+    rsync
+    tmux
+    z
+    zsh-interactive-cd
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# ##############################################################
+# User configuration
+# ##############################################################
+unsetopt sharehistory
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nano'
+  export GIT_EDITOR='nano'
+else
+  export EDITOR='nvim'
+  export GIT_EDITOR='nvim'
+fi
+
+# Enable syntax highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
+
+# ##############################################################
+# Path Exports & Variables
+# ##############################################################
+
+# Herd injected PHP binary.
+export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
+export PHP_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
+
+# Herd injected PHP 7.4 configuration.
+export HERD_PHP_74_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/74/"
+# Herd injected PHP 8.0 configuration.
+export HERD_PHP_80_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/80/"
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/81/"
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/82/"
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+
+
+# ##############################################################
+# Aliases
+# ##############################################################
+# Vim
+alias vim='nvim'
+
+# PHP
+alias artisan='nocorrect herd php artisan'
+alias art='nocorrect herd php artisan'
+alias composer='nocorrect herd composer'
+
+# ZSH config
+alias zsh_config='code ~/.zshrc'
+alias zsh_reload='source ~/.zshrc'
+
+# Git
+alias g="git"
+alias gs="git s"
+alias co="git checkout"
+alias main='git checkout $([ `git rev-parse --quiet --verify master` ] && echo "master" || echo "main")'
+alias wip='git commit -m "wip"'
+nah() {
+    git reset --hard
+
+    if [[ $1 == "-f" ]]; then
+        git clean -df
+    fi
+}
+
+
+# ##############################################################
+# Functions
+# ##############################################################
+# Open project drirectory in shell
+function pr() {
+
+  declare -A dictionary=(
+    [p]=php
+    [v]=valet
+    [j]=javascript
+    [e]=electron
+  )
+
+  cd "$HOME/Code/${dictionary[$1]}"
+}
+
+# Upgrade all package managers and global dependencies
+function upgrade_package_managers() {
+
+  # Upgrade Homebrew & all packages + casks
+  brew update
+  brew upgrade
+  brew upgrade --cask
+  brew cleanup
+  # brew doctor
+
+  # Upgrade Composer and global dependencies
+  composer self-update
+  composer global update
+
+  # Upgrade npm & global dependencies
+  nvm install-latest-npm
+  npm cache verify
+  npm update -g
+}
+
+# ##############################################################
+# Autocomplete response speed hack
+# ##############################################################
+export KEYTIMEOUT=15
+
+typeset -U path cdpath fpath
+path=(
+    $HOME/.local/bin
+    $HOME/.config/composer/vendor/bin
+    $HOME/.go/bin
+    $HOME/.cargo/bin
+    ./vendor/bin
+    $HOME/.local/share/bob/nvim-bin
+    $HOME/Code/jessarcher/dotfiles/scripts
+    ${ANDROID_HOME}tools/
+    ${ANDROID_HOME}platform-tools/
+    $path
+)
+
+setopt auto_cd
+cdpath=(
+    $HOME/Code
+)
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format %d
+zstyle ':completion:*:descriptions' format %B%d%b
+zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
+    'local-directories named-directories'
+
+# ##############################################################
+# Python
+# ##############################################################
+# Change Python versions - pyenv (like nvm)
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# ##############################################################
+# Start matrix screensaver on every new session
+# ##############################################################
+cmatrix -r -s
+
+# ##############################################################
+# Programmaticly appended lines
+# ##############################################################
+# Give these a nice home
