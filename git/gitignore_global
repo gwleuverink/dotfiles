@@ -1,0 +1,22 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Misx
+.ssh
+
+# IDE
+_ide_helper.php
+.phpstorm.meta.php
+.phpactor.json
+.phpunit.cache
+.vscode
+.idea
