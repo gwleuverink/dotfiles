@@ -1,3 +1,6 @@
+[user]
+	name = gwleuverink
+	email = willem@leuver.ink
 [alias]
     pul = pull
     pus = push
@@ -14,7 +17,7 @@
 [color]
     ui = auto
 [commit]
-    gpgsign = true
+    gpgsign = false
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global

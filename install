@@ -2,8 +2,6 @@
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Zsh
-ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
 
 # Git
 ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
@@ -12,3 +10,9 @@ ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
 # Kitty
 rm -rf $HOME/.config/kitty
 ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+# Zsh
+ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+if [ ! -d "$HOME/.oh-my-zsh" ]; then # Auto install if not exists
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
