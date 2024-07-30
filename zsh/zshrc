@@ -55,6 +55,7 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 # ##############################################################
 # Path Exports & Variables
 # ##############################################################
+export KEYTIMEOUT=15
 
 # Herd injected PHP binary.
 export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
@@ -71,6 +72,27 @@ export HERD_PHP_82_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/p
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
 
+# Paths
+typeset -U path cdpath fpath
+path=(
+    $HOME/.local/bin
+    $HOME/.config/composer/vendor/bin
+    $HOME/.go/bin
+    $HOME/.cargo/bin
+    ./vendor/bin
+    $path
+)
+
+setopt auto_cd
+cdpath=(
+    $HOME/Code
+)
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format %d
+zstyle ':completion:*:descriptions' format %B%d%b
+zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
+    'local-directories named-directories'
 
 # ##############################################################
 # Aliases
@@ -137,36 +159,6 @@ function upgrade_package_managers() {
   npm cache verify
   npm update -g
 }
-
-# ##############################################################
-# Autocomplete response speed hack
-# ##############################################################
-export KEYTIMEOUT=15
-
-typeset -U path cdpath fpath
-path=(
-    $HOME/.local/bin
-    $HOME/.config/composer/vendor/bin
-    $HOME/.go/bin
-    $HOME/.cargo/bin
-    ./vendor/bin
-    $HOME/.local/share/bob/nvim-bin
-    $HOME/Code/jessarcher/dotfiles/scripts
-    ${ANDROID_HOME}tools/
-    ${ANDROID_HOME}platform-tools/
-    $path
-)
-
-setopt auto_cd
-cdpath=(
-    $HOME/Code
-)
-
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %d
-zstyle ':completion:*:descriptions' format %B%d%b
-zstyle ':completion:*:complete:(cd|pushd):*' tag-order \
-    'local-directories named-directories'
 
 # ##############################################################
 # Python
