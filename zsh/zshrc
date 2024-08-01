@@ -172,7 +172,7 @@ eval "$(pyenv init -)"
 # ##############################################################
 # Start matrix screensaver on every new session
 # ##############################################################
-cmatrix -r -s
+# cmatrix -r -s
 
 # ##############################################################
 # Programmaticly appended lines
