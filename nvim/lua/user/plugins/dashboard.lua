@@ -56,12 +56,12 @@ return {
         "                                                     ",
       },
       center = {
-        { icon = '  ', desc = 'New file          ', action = 'enew' },
-        { icon = '  ', desc = 'Find file         ', key = 'f', key_format = 'Space + %s', action = 'Telescope find_files' },
-        { icon = '󱔗  ', desc = 'Recent files      ', key = 'h', key_format = 'Space + %s' ,action = 'Telescope oldfiles' },
-        { icon = '  ', desc = 'Find Word         ', key = 'g', key_format = 'Space + %s' ,action = 'Telescope live_grep' },
-        { icon = '  ', desc = 'Explorer          ', key = 'e', key_format = 'Space + %s' ,action = 'Neotree reveal toggle' },
-        { icon = '  ', desc = 'Open terminal     ', key = '`', key_format = 'Space + %s' ,action = 'FloatermToggle' },
+        { icon = '   ', desc = 'New file          ', action = 'enew' },
+        { icon = '   ', desc = 'Find file         ', key = 'f', key_format = 'Space + %s', action = 'Telescope find_files' },
+        { icon = '󱔗   ', desc = 'Recent files      ', key = 'h', key_format = 'Space + %s' ,action = 'Telescope oldfiles' },
+        { icon = '   ', desc = 'Find Word         ', key = 'g', key_format = 'Space + %s' ,action = 'Telescope live_grep' },
+        { icon = '   ', desc = 'Explorer          ', key = 'e', key_format = 'Space + %s' ,action = 'Neotree reveal toggle' },
+        { icon = '   ', desc = 'Open terminal     ', key = '`', key_format = 'Space + %s' ,action = 'FloatermToggle' },
 
       },
       footer = { '', getRandomQuote() }

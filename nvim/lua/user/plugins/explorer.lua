@@ -35,8 +35,10 @@ return {
       },
     },
     opts = {
-      close_if_last_window = true,
       hide_root_node = true,
+      enable_git_status = true,
+      close_if_last_window = true,
+      sort_case_insensitive = true,
       sources = {
         "filesystem",
         "buffers",
@@ -76,9 +78,9 @@ return {
             ".git",
           },
         },
-        -- follow_current_file = {
-        --   enabled = true,
-        -- },
+        follow_current_file = {
+          enabled = true,
+        },
         group_empty_dirs = false
       },
     },
