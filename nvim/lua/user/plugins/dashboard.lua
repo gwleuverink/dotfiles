@@ -35,6 +35,8 @@ return {
   dependencies = {
     'nvim-telescope/telescope.nvim',
     'nvim-tree/nvim-web-devicons',
+    'nvim-neo-tree/neo-tree.nvim',
+    'voldikss/vim-floaterm',
   },
   opts = {
     theme = 'doom',
@@ -55,10 +57,11 @@ return {
       },
       center = {
         { icon = '  ', desc = 'New file          ', action = 'enew' },
-        { icon = '  ', desc = 'Find file         ', key = 'Space + f', action = 'Telescope find_files' },
-        { icon = '󱔗  ', desc = 'Recent files      ', key = 'Space + h', action = 'Telescope oldfiles' },
-        { icon = '  ', desc = 'Find Word         ', key = 'Space + g', action = 'Telescope live_grep' },
-        { icon = '  ', desc = 'Open terminal     ', key = 'Space + `', action = 'FloatermToggle' },
+        { icon = '  ', desc = 'Find file         ', key = 'f', key_format = 'Space + %s', action = 'Telescope find_files' },
+        { icon = '󱔗  ', desc = 'Recent files      ', key = 'h', key_format = 'Space + %s' ,action = 'Telescope oldfiles' },
+        { icon = '  ', desc = 'Find Word         ', key = 'g', key_format = 'Space + %s' ,action = 'Telescope live_grep' },
+        { icon = '  ', desc = 'Explorer          ', key = 'e', key_format = 'Space + %s' ,action = 'Neotree reveal toggle' },
+        { icon = '  ', desc = 'Open terminal     ', key = '`', key_format = 'Space + %s' ,action = 'FloatermToggle' },
 
       },
       footer = { '', getRandomQuote() }
