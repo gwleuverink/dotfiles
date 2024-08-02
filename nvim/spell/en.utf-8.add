@@ -8,3 +8,11 @@ endunless
 foreach
 TODO
 ucfirst
+Tmux
+Neovim
+Node
+NVM
+Zsh
+keymap
+Esc
+nvim
