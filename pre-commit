@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ "$PWD" = "$dotfiles_dir" ]; then
+  $DOTFILES/vscode/bin/sync_extensions
+  git add $DOTFILES/vscode/extensions.txt
+fi

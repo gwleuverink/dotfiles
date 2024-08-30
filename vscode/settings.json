@@ -1,0 +1,389 @@
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Better Defaults
+    |--------------------------------------------------------------------------
+    */
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.emptySelectionClipboard": false,
+    "workbench.editor.enablePreview": false,
+    "window.newWindowDimensions": "inherit",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.trimTrailingWhitespace": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.snippetSuggestions": "top",
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "none",
+    "editor.guides.indentation": false,
+    // "window.nativeFullScreen": false, // better vscode
+    "window.titleBarStyle": "custom", // better vscode
+    "window.commandCenter": false, // better vscode
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "zenMode.centerLayout": false,
+    "git.enableSmartCommit": true,
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.formatOnSave": true,
+    "git.autofetch": true,
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+    "workbench.editor.showTabs": "single",
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "off",
+    "scm.diffDecorations": "none",
+    "editor.hover.enabled": false,
+    "editor.matchBrackets": "never",
+    "workbench.tips.enabled": false,
+    "editor.colorDecorators": false,
+    "git.decorations.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.lightbulb.enabled": "off",
+    "editor.selectionHighlight": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": "off",
+    "problems.decorations.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    /*
+    |--------------------------------------------------------------------------
+    | Find
+    |--------------------------------------------------------------------------
+    */
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        // Hide everything in /vendor, except the "laravel" and "livewire" folder.
+        "**/vendor/{[^l],?[^ai]}*": true,
+        // Hide everything in /public, except "index.php"
+        "**/public/{[^i],?[^n]}*": true,
+        // Hide all other irrelevant cruft
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/_ide_helper.php": true,
+        "**/_ide_helper_models.php": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "storage": true,
+        ".phpunit.result.cache": true
+    },
+    /*
+    |--------------------------------------------------------------------------
+    | Terminal
+    |--------------------------------------------------------------------------
+    */
+    "debug.terminal.clearBeforeReusing": true,
+    "terminal.external.osxExec": "Warp.app",
+    "terminal.integrated.scrollback": 1600,
+    /*
+    |--------------------------------------------------------------------------
+    | General code & language config
+    |--------------------------------------------------------------------------
+    */
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?", // Include "-" in word selection.
+    "html.format.wrapAttributes": "preserve",
+    "tailwindCSS.emmetCompletions": true,
+    "emmet.triggerExpansionOnTab": true,
+    "html.format.wrapLineLength": 0,
+    "headwind.runOnSave": true,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html"
+    },
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "vue-html": "html",
+        "vue": "html",
+        "x-script": "javascript"
+    },
+    "files.associations": {
+        ".php_cs": "php",
+        ".php_cs.dist": "php",
+        "*.css": "tailwindcss",
+        ".env*": "dotenv"
+    },
+    /*
+    |--------------------------------------------------------------------------
+    | PHP language config
+    |--------------------------------------------------------------------------
+    */
+    "laravel-pint.enable": true,
+    "better-phpunit.suiteSuffix": null,
+    // "better-phpunit.phpunitBinary": "vendor/bin/pest",
+    // "better-phpunit.phpunitBinary": "php artisan test",
+    // "better-phpunit.phpunitBinary": "vendor/bin/phpunit",
+    "better-phpunit.commandSuffix": "--stop-on-failure",
+    "better-pest.commandSuffix": "--stop-on-failure",
+    "LaravelIntellisense.model": "App\\Models",
+    "intelephense.completion.triggerParameterHints": true,
+    "intelephense.completion.insertUseDeclaration": true,
+    "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": false,
+    "intelephense.trace.server": "messages",
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/storage",
+        "**/storage/**",
+        "**/tests/**",
+        "**/resources/views/**",
+        "**/database/migrations/**",
+        "**/storage/framework/views/**",
+        "_ide_helper.php",
+        "_ide_helper_models"
+    ],
+    "[php]": {
+        "editor.defaultFormatter": "open-southeners.laravel-pint"
+    },
+    /*
+    |--------------------------------------------------------------------------
+    | Blade formatting
+    |--------------------------------------------------------------------------
+    */
+    "blade.format.enable": true,
+    "bladeFormatter.format.enabled": false,
+    "bladeFormatter.format.sortHtmlAttributes": "custom",
+    "bladeFormatter.format.customHtmlAttributesOrder": "wire:, x-data, x-if, x-show, x-on, @, id, class",
+    "bladeFormatter.format.wrapLineLength": 500000,
+    "[blade]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.autoClosingBrackets": "always"
+    },
+    "[x-script]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.autoClosingBrackets": "always",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+    },
+    /*
+  |--------------------------------------------------------------------------
+  | PHP JavaScript config
+  |--------------------------------------------------------------------------
+  */
+    "importCost.javascriptExtensions": [
+        "\\.jsx?$",
+        "\\.vue?$"
+    ],
+    /*
+    |--------------------------------------------------------------------------
+    | Debugger
+    |--------------------------------------------------------------------------
+    */
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Listen for XDebug",
+                "type": "php",
+                "request": "launch",
+                "port": 9003
+            }
+        ]
+    },
+    /*
+    |--------------------------------------------------------------------------
+    | Copilot
+    |--------------------------------------------------------------------------
+    */
+    "github.copilot.enable": {
+        "*": false,
+        "php": true,
+        "json": true,
+        "javascript": true,
+    },
+    "github.copilot.chat.localeOverride": "en",
+    "github.copilot.editor.enableCodeActions": true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Typography
+    |--------------------------------------------------------------------------
+    */
+    "editor.fontFamily": "MonoLisa",
+    "terminal.integrated.fontFamily": "MonoLisa",
+    "editor.fontLigatures": "'calt' on, 'liga' on, 'zero' off, 'ss02' on, 'ss03' on, 'ss06' on, 'ss08' on, 'ss11' on",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 34,
+    "editor.fontWeight": "400",
+    "editor.suggestFontSize": 16,
+    "editor.fontVariations": true,
+    "editor.suggestLineHeight": 28,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.lineHeight": 1.2,
+    /*
+    |--------------------------------------------------------------------------
+    | Markdown
+    |--------------------------------------------------------------------------
+    */
+    "markdown-preview-github-styles.colorTheme": "light",
+    /*
+    |--------------------------------------------------------------------------
+    | Textmate rules | Optimize themes for Operator/Dank Mono
+    |--------------------------------------------------------------------------
+    */
+    "editor.tokenColorCustomizations": {
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        },
+        "textMateRules": [
+            {
+                "name": "normalize font style of certain components",
+                "scope": [
+                    "entity.name.type.namespace",
+                    "entity.other.inherited-class",
+                    "keyboard.control",
+                    "keyword.operator.arithmetic",
+                    "keyword.operator.assignment",
+                    "keyword.operator.bitwise",
+                    "keyword.operator.comparison",
+                    "keyword.operator.expression.in",
+                    "keyword.operator.increment",
+                    "keyword.operator.logical",
+                    "keyword.operator.operator",
+                    "keyword.operator.or.regexp",
+                    "keyword.operator.ternary",
+                    "keyword.operator.type",
+                    "meta.property-list.css meta.property-value.css variable.other.less",
+                    "meta.property-list.sass variable.sass",
+                    "meta.property-list.scss variable.scss",
+                    "meta.tag.js meta.embedded.expression.js punctuation.section.embedded.begin.js",
+                    "meta.tag.js meta.embedded.expression.js punctuation.section.embedded.end.js",
+                    "punctuation.definintion.string",
+                    "punctuation.section.embedded.begin.js.jsx",
+                    "punctuation.section.embedded.end.js.jsx",
+                    "punctuation.section.embedded.js",
+                    "punctuation",
+                    "support.class",
+                    "support.other"
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            },
+            {
+                "name": "italicsify for operator mono",
+                "scope": [
+                    "assignment.coffee",
+                    "comment support.class",
+                    "comment support.other",
+                    "comment",
+                    "constant.language",
+                    "constant.other.color.rgb-value.hex.css",
+                    "constant.other.rgb-value.css",
+                    "entity.name.function.ts",
+                    "entity.name.function.tsx",
+                    "entity.name.tag.custom",
+                    "entity.name.tag.doctype",
+                    "entity.name.tag.yaml",
+                    "entity.name.type.ts",
+                    "entity.other.attribute-name",
+                    "italic",
+                    "keyword.control",
+                    "keyword.operator.expression.typeof",
+                    "keyword.operator.type.annotation",
+                    "keyword.other.unit",
+                    "language",
+                    "meta.export.js variable.other",
+                    "meta.export.ts meta.block.ts variable.other.readwrite.alias.ts",
+                    "meta.export.tsx meta.block.tsx variable.other.readwrite.alias.tsx",
+                    "meta.import.js variable.other",
+                    "meta.import.ts meta.block.ts variable.other.readwrite.alias.ts",
+                    "meta.import.tsx meta.block.tsx variable.other.readwrite.alias.tsx",
+                    "meta.object-literal.key",
+                    "meta.parameter",
+                    "meta.parameters",
+                    "meta.tag.sgml.doctype.html",
+                    "meta.tag.sgml.doctype",
+                    "meta.var.expr storage.type",
+                    "modifier",
+                    "parameter",
+                    "punctuation.section.embedded",
+                    "quote",
+                    "source.js.jsx keyword.control.flow.js",
+                    "storage.type.class",
+                    "storage",
+                    "support.constant.math",
+                    "support.constant.vendored.property-value.css",
+                    "support.function.basic_functions",
+                    "support.function.basic_functions",
+                    "support.type.primitive",
+                    "support.type.property-name.css",
+                    "support.type.property.css",
+                    "support.type.vendored.property-name.css",
+                    "this",
+                    "type .function",
+                    "type.function",
+                    "type.var",
+                    "variable.assignment.coffee",
+                    "variable.language",
+                    "variable.object.property.js",
+                    "variable.object.property.jsx",
+                    "variable.object.property.ts",
+                    "variable.object.property.tsx",
+                    "variable.other.less",
+                    "variable.parameter.url.sass",
+                    "variable.parameter.url.scss",
+                    "variable.parameter",
+                    "variable.sass",
+                    "variable.scss"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
+    /*
+    |--------------------------------------------------------------------------
+    | Theme
+    |--------------------------------------------------------------------------
+    */
+    "workbench.colorTheme": "Catppuccin Latte",
+    "workbench.iconTheme": "quill-icons",
+    /*
+    |--------------------------------------------------------------------------
+    | Programmatically Appended - Find a better home
+    |--------------------------------------------------------------------------
+    */
+    "dotenv.enableAutocloaking": false,
+    "codescene.enableRemoteFeatures": true,
+    "php-cs-fixer.lastDownload": 1695242816327,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.activityBar.location": "hidden",
+    "security.promptForLocalFileProtocolHandling": false,
+    "git.confirmSync": false,
+    "github.copilot.editor.enableAutoCompletions": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "diffEditor.renderSideBySide": false,
+    "editor.wordWrapColumn": 160,
+}

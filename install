@@ -2,6 +2,9 @@
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# pre-commit hook
+cp $DOTFILES/precommit-hook $DOTFILES/.git/hooks/pre-commit
+
 
 # Git
 ln -sf $DOTFILES/git/gitconfig $HOME/.gitconfig
@@ -10,6 +13,12 @@ ln -sf $DOTFILES/git/gitignore_global $HOME/.gitignore_global
 # Tmux
 rm -f $HOME/.tmux.conf
 ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+# Vscode
+rm $HOME/Library/Application\ Support/Code/settings.json
+rm $HOME/Library/Application\ Support/Code/keybindings.json
+ln -sf $DOTFILES/vscode/settings.json $HOME/Library/Application\ Support/Code/settings.json
+ln -sf $DOTFILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/keybindings.json
 
 # Kitty
 rm -rf $HOME/.config/kitty
