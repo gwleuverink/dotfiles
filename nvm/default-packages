@@ -1,6 +1,5 @@
 @fsouza/prettierd
 @tailwindcss/language-server
-@volar/vue-language-server
 bash-language-server
 bun
 eslint_d

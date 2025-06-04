@@ -22,8 +22,6 @@ plugins=(
     laravel
     cp
     dnf
-    docker
-    docker-compose
     git
     httpie
     rsync
@@ -57,27 +55,6 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 # ##############################################################
 export KEYTIMEOUT=15
 
-# Herd injected PHP binary.
-export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
-export PHP_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
-
-# Herd injected PHP 7.4 configuration.
-export HERD_PHP_74_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/74/"
-
-# Herd injected PHP 8.0 configuration.
-export HERD_PHP_80_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/80/"
-
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/81/"
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/82/"
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
-
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/8/"
 
 # Paths
 typeset -U path cdpath fpath
@@ -114,10 +91,11 @@ alias art='nocorrect herd php artisan'
 alias composer='nocorrect herd composer'
 
 # ZSH config
-alias zsh_config='code ~/.zshrc'
+alias zsh_config='nvim ~/.zshrc'
 alias zsh_reload='source ~/.zshrc'
 
 # Git
+# alias phpacker="~/Code/php/phpacker/bin/phpacker"
 alias g="git"
 alias gs="git s"
 alias co="git checkout"
@@ -140,12 +118,33 @@ function pr() {
 
   declare -A dictionary=(
     [p]=php
+    [py]=python
+    [h]=herd
     [v]=valet
+    [n]=nativephp
     [j]=javascript
     [e]=electron
   )
 
   cd "$HOME/Code/${dictionary[$1]}"
+}
+
+kill_port() {
+  if [ -z "$1" ]; then
+    echo "Usage: kill_port <port_number>"
+    return 1
+  fi
+
+  local port=$1
+  local pid=$(lsof -t -i :$port)
+
+  if [ -z "$pid" ]; then
+    echo "No process found running on port $port"
+    return 1
+  fi
+
+  kill -9 $pid
+  echo "Killed process $pid running on port $port"
 }
 
 # Upgrade all package managers and global dependencies
@@ -163,9 +162,10 @@ function upgrade_package_managers() {
   composer global update
 
   # Upgrade npm & global dependencies
-  nvm install-latest-npm
-  npm cache verify
-  npm update -g
+  # NOTE: Let Herd manage NPM versions
+  # nvm install-latest-npm
+  # npm cache verify
+  # npm update -g
 }
 
 # ##############################################################
