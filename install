@@ -15,10 +15,10 @@ rm -f $HOME/.tmux.conf
 ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
 # Vscode
-rm $HOME/Library/Application\ Support/Code/settings.json
-rm $HOME/Library/Application\ Support/Code/keybindings.json
-ln -sf $DOTFILES/vscode/settings.json $HOME/Library/Application\ Support/Code/settings.json
-ln -sf $DOTFILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/keybindings.json
+rm $HOME/Library/Application\ Support/Code/User/settings.json
+rm $HOME/Library/Application\ Support/Code/User/keybindings.json
+ln -sf $DOTFILES/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+ln -sf $DOTFILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
 
 # Kitty
 # rm -rf $HOME/.config/kitty
