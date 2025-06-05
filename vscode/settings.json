@@ -62,7 +62,7 @@
     | Theme
     |--------------------------------------------------------------------------
     */
-    "workbench.colorTheme": "Catppuccin Latte",
+    "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.iconTheme": "quill-icons",
     /*
     |--------------------------------------------------------------------------
