@@ -124,20 +124,20 @@
     },
     /*
     |--------------------------------------------------------------------------
-    | Cycle favorite themes
+    | Toggle dark mode
     |--------------------------------------------------------------------------
     */
     {
         "key": "cmd+k cmd+c",
         "command": "toggle",
         "args": {
-            "id": "fontSize",
+            "id": "darkmode",
             "value": [
                 {
-                    "workbench.colorTheme": "Tokyo Night Storm",
+                    "workbench.colorTheme": "Catppuccin Macchiato",
                 },
                 {
-                    "workbench.colorTheme": "Tokyo Night Light",
+                    "workbench.colorTheme": "Catppuccin Latte",
                 }
             ]
         }
@@ -327,25 +327,8 @@
     },
     {
         "key": "cmd+k cmd+i",
+        "when": "editorTextFocus",
         "command": "namespaceResolver.import"
-    },
-    /*
-    |--------------------------------------------------------------------------
-    | Project Switching
-    |--------------------------------------------------------------------------
-    */
-    {
-        "key": "cmd+;",
-        "command": "workbench.action.switchWindow",
-        "when": "! config.simple-project-switcher.present"
-    },
-    {
-        "key": "alt+cmd+right",
-        "command": "workbench.action.showNextWindowTab"
-    },
-    {
-        "key": "alt+cmd+left",
-        "command": "workbench.action.showPreviousWindowTab"
     },
     /*
     |--------------------------------------------------------------------------

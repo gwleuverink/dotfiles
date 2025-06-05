@@ -4,55 +4,66 @@
     | Better Defaults
     |--------------------------------------------------------------------------
     */
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleReferences": "goto",
     "editor.copyWithSyntaxHighlighting": false,
+    // "editor.hideCursorInOverviewRuler": true,
+    "editor.renderControlCharacters": false,
     "editor.emptySelectionClipboard": false,
-    "workbench.editor.enablePreview": false,
-    "window.newWindowDimensions": "inherit",
     "editor.multiCursorModifier": "ctrlCmd",
-    "files.trimTrailingWhitespace": true,
     "editor.inlineSuggest.enabled": true,
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
     "editor.snippetSuggestions": "top",
+    "editor.guides.indentation": false,
+    "editor.selectionHighlight": false,
     "editor.detectIndentation": false,
     "editor.renderWhitespace": "none",
-    "editor.guides.indentation": false,
-    // "window.nativeFullScreen": false, // better vscode
-    "window.titleBarStyle": "custom", // better vscode
-    "window.commandCenter": false, // better vscode
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "zenMode.centerLayout": false,
-    "git.enableSmartCommit": true,
+    "editor.lightbulb.enabled": "off",
+    "editor.colorDecorators": false,
+    "editor.minimap.enabled": false,
+    "editor.matchBrackets": "never",
+    "editor.hover.enabled": false,
+    "editor.wordWrapColumn": 160,
+    "editor.lineNumbers": "off",
+    "editor.formatOnSave": true,
     "editor.quickSuggestions": {
         "strings": true
     },
-    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "git.decorations.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
     "git.autofetch": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.activityBar.location": "hidden",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.empty.hint": "hidden",
     "workbench.sideBar.location": "right",
     "workbench.statusBar.visible": false,
     "workbench.editor.showTabs": "single",
-    "editor.minimap.enabled": false,
-    "editor.lineNumbers": "off",
-    "scm.diffDecorations": "none",
-    "editor.hover.enabled": false,
-    "editor.matchBrackets": "never",
-    "workbench.tips.enabled": false,
-    "editor.colorDecorators": false,
-    "git.decorations.enabled": false,
     "workbench.startupEditor": "none",
-    "editor.lightbulb.enabled": "off",
-    "editor.selectionHighlight": false,
-    "editor.overviewRulerBorder": false,
-    "editor.renderLineHighlight": "none",
-    "editor.occurrencesHighlight": "off",
+    "workbench.tips.enabled": false,
+    "window.newWindowDimensions": "inherit",
+    "window.commandCenter": false,
+    "zenMode.centerLayout": false,
+    "scm.diffDecorations": "none",
     "problems.decorations.enabled": false,
-    "editor.renderControlCharacters": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.gotoLocation.multipleReferences": "goto",
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "editor.gotoLocation.multipleDeclarations": "goto",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "editor.gotoLocation.multipleImplementations": "goto",
-    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    /*
+    |--------------------------------------------------------------------------
+    | Theme
+    |--------------------------------------------------------------------------
+    */
+    "workbench.colorTheme": "Catppuccin Latte",
+    "workbench.iconTheme": "quill-icons",
     /*
     |--------------------------------------------------------------------------
     | Find
@@ -60,19 +71,22 @@
     */
     "search.useIgnoreFiles": false,
     "search.exclude": {
-        // Hide everything in /vendor, except the "laravel" and "livewire" folder.
-        "**/vendor/{[^l],?[^ai]}*": true,
-        // Hide everything in /public, except "index.php"
-        "**/public/{[^i],?[^n]}*": true,
-        // Hide all other irrelevant cruft
         "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor/{[^l],?[^ai]}*": true,
+        "**/public/{[^i],?[^n]}*": true,
         "**/dist": true,
         "**/_ide_helper.php": true,
         "**/_ide_helper_models.php": true,
         "**/composer.lock": true,
         "**/package-lock.json": true,
         "storage": true,
-        ".phpunit.result.cache": true
+        ".phpunit.result.cache": true,
+        "_ide_helper.php": true,
+        "_ide_helper_models.php": true,
+        ".php_cs.cache": true,
+        ".phpstorm.meta.php": true
     },
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +94,7 @@
     |--------------------------------------------------------------------------
     */
     "debug.terminal.clearBeforeReusing": true,
-    "terminal.external.osxExec": "Warp.app",
+    "terminal.external.osxExec": "Ghostty.app",
     "terminal.integrated.scrollback": 1600,
     /*
     |--------------------------------------------------------------------------
@@ -89,38 +103,36 @@
     */
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?", // Include "-" in word selection.
     "html.format.wrapAttributes": "preserve",
-    "tailwindCSS.emmetCompletions": true,
-    "emmet.triggerExpansionOnTab": true,
     "html.format.wrapLineLength": 0,
-    "headwind.runOnSave": true,
-    "tailwindCSS.includeLanguages": {
-        "plaintext": "html"
-    },
+    "emmet.triggerExpansionOnTab": true,
     "emmet.includeLanguages": {
         "blade": "html",
         "vue-html": "html",
         "vue": "html",
-        "x-script": "javascript"
+        "x-script": "javascript",
+        "blade.php": "html",
+        "twig": "html"
     },
     "files.associations": {
         ".php_cs": "php",
         ".php_cs.dist": "php",
         "*.css": "tailwindcss",
-        ".env*": "dotenv"
+        ".env*": "dotenv",
+        ".pre": "php",
+        "artisan": "php"
+    },
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     /*
     |--------------------------------------------------------------------------
     | PHP language config
     |--------------------------------------------------------------------------
     */
-    "laravel-pint.enable": true,
-    "better-phpunit.suiteSuffix": null,
-    // "better-phpunit.phpunitBinary": "vendor/bin/pest",
-    // "better-phpunit.phpunitBinary": "php artisan test",
-    // "better-phpunit.phpunitBinary": "vendor/bin/phpunit",
-    "better-phpunit.commandSuffix": "--stop-on-failure",
-    "better-pest.commandSuffix": "--stop-on-failure",
-    "LaravelIntellisense.model": "App\\Models",
     "intelephense.completion.triggerParameterHints": true,
     "intelephense.completion.insertUseDeclaration": true,
     "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": false,
@@ -147,29 +159,16 @@
     },
     /*
     |--------------------------------------------------------------------------
-    | Blade formatting
+    | Testing
     |--------------------------------------------------------------------------
     */
-    "blade.format.enable": true,
-    "bladeFormatter.format.enabled": false,
-    "bladeFormatter.format.sortHtmlAttributes": "custom",
-    "bladeFormatter.format.customHtmlAttributesOrder": "wire:, x-data, x-if, x-show, x-on, @, id, class",
-    "bladeFormatter.format.wrapLineLength": 500000,
-    "[blade]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.autoClosingBrackets": "always"
-    },
-    "[x-script]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features",
-        "editor.autoClosingBrackets": "always",
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true
-    },
+    "better-phpunit.suiteSuffix": null,
+    "better-phpunit.commandSuffix": "--stop-on-failure",
     /*
-  |--------------------------------------------------------------------------
-  | PHP JavaScript config
-  |--------------------------------------------------------------------------
-  */
+    |--------------------------------------------------------------------------
+    | PHP JavaScript config
+    |--------------------------------------------------------------------------
+    */
     "importCost.javascriptExtensions": [
         "\\.jsx?$",
         "\\.vue?$"
@@ -192,34 +191,22 @@
     },
     /*
     |--------------------------------------------------------------------------
-    | Copilot
-    |--------------------------------------------------------------------------
-    */
-    "github.copilot.enable": {
-        "*": false,
-        "php": true,
-        "json": true,
-        "javascript": true,
-    },
-    "github.copilot.chat.localeOverride": "en",
-    "github.copilot.editor.enableCodeActions": true,
-
-    /*
-    |--------------------------------------------------------------------------
     | Typography
     |--------------------------------------------------------------------------
     */
     "editor.fontFamily": "MonoLisa",
-    "terminal.integrated.fontFamily": "MonoLisa",
+    "terminal.integrated.fontFamily": "Dank Mono",
     "editor.fontLigatures": "'calt' on, 'liga' on, 'zero' off, 'ss02' on, 'ss03' on, 'ss06' on, 'ss08' on, 'ss11' on",
     "editor.fontSize": 14,
-    "editor.lineHeight": 34,
+    "editor.lineHeight": 1.2,
     "editor.fontWeight": "400",
     "editor.suggestFontSize": 16,
     "editor.fontVariations": true,
     "editor.suggestLineHeight": 28,
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontSize": 15,
     "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontLigatures.featureSettings": "'calt' on",
     /*
     |--------------------------------------------------------------------------
     | Markdown
@@ -360,30 +347,18 @@
             }
         ]
     },
-    /*
-    |--------------------------------------------------------------------------
-    | Theme
-    |--------------------------------------------------------------------------
-    */
-    "workbench.colorTheme": "Catppuccin Latte",
-    "workbench.iconTheme": "quill-icons",
-    /*
-    |--------------------------------------------------------------------------
-    | Programmatically Appended - Find a better home
-    |--------------------------------------------------------------------------
-    */
-    "dotenv.enableAutocloaking": false,
-    "codescene.enableRemoteFeatures": true,
-    "php-cs-fixer.lastDownload": 1695242816327,
-    "workbench.editor.empty.hint": "hidden",
-    "workbench.activityBar.location": "hidden",
-    "security.promptForLocalFileProtocolHandling": false,
-    "git.confirmSync": false,
-    "github.copilot.editor.enableAutoCompletions": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+        "composer.json": "composer.lock",
+        "psalm.xml": "psalm-baseline.xml",
+        ".php-cs-fixer.php": ".php-cs-fixer.cache",
+        "phpunit.xml": ".phpunit.result.cache",
+        "*.php": "${basename}Test.php"
     },
-    "diffEditor.renderSideBySide": false,
-    "editor.wordWrapColumn": 160,
+    "laravel-pint.enable": true
 }
