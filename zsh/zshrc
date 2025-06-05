@@ -17,16 +17,13 @@ HIST_STAMPS="mm-dd-yyyy"
 plugins=(
     brew
     npm
-    vi-mode
     composer
     laravel
     cp
     dnf
     git
-    httpie
     rsync
     tmux
-    z
     zsh-interactive-cd
 )
 
@@ -95,7 +92,6 @@ alias zsh_config='nvim ~/.zshrc'
 alias zsh_reload='source ~/.zshrc'
 
 # Git
-# alias phpacker="~/Code/php/phpacker/bin/phpacker"
 alias g="git"
 alias gs="git s"
 alias co="git checkout"
@@ -108,6 +104,7 @@ nah() {
         git clean -df
     fi
 }
+# alias phpacker="~/Code/php/phpacker/bin/phpacker"
 
 
 # ##############################################################
@@ -168,13 +165,25 @@ function upgrade_package_managers() {
   # npm update -g
 }
 
+
+
 # ##############################################################
-# Python
+# Laravel Herd
 # ##############################################################
-# Change Python versions - pyenv (like nvm)
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+
+export HERD_PHP_84_INI_SCAN_DIR="/Users/gwleuverink/Library/Application Support/Herd/config/php/84/"
+
+# Herd injected NVM configuration
+export NVM_DIR="/Users/gwleuverink/Library/Application Support/Herd/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+# Herd injected PHP binary.
+export PATH="/Users/gwleuverink/Library/Application Support/Herd/bin/":$PATH
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/gwleuverink/Library/Application Support/Herd/config/php/83/"
 
 # ##############################################################
 # Start matrix screensaver on every new session
