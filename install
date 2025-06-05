@@ -3,7 +3,7 @@
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # pre-commit hook
-cp $DOTFILES/precommit-hook $DOTFILES/.git/hooks/pre-commit
+cp $DOTFILES/pre-commit $DOTFILES/.git/hooks/pre-commit
 
 
 # Git
@@ -21,8 +21,8 @@ ln -sf $DOTFILES/vscode/settings.json $HOME/Library/Application\ Support/Code/se
 ln -sf $DOTFILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/keybindings.json
 
 # Kitty
-rm -rf $HOME/.config/kitty
-ln -sf $DOTFILES/kitty $HOME/.config/kitty
+# rm -rf $HOME/.config/kitty
+# ln -sf $DOTFILES/kitty $HOME/.config/kitty
 
 # Neovim
 rm -rf $HOME/.config/nvim
@@ -40,7 +40,7 @@ rm -f $HOME/.nvm/default-packages
 ln -sf $DOTFILES/nvm/default-packages $HOME/.nvm/default-packages
 
 # Zsh
-rm -f $DOTFILES/zsh/zshrc
+rm -f $HOME/.zshrc
 ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
 if [ ! -d "$HOME/.oh-my-zsh" ]; then # Auto install if not exists
     KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
